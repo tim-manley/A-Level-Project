@@ -129,7 +129,7 @@
         <!--Make Reading-->
         <scene sceneID="Z5o-4W-rgb">
             <objects>
-                <viewController title="Make Reading" id="ccv-HA-nq2" sceneMemberID="viewController">
+                <viewController title="Make Reading" id="ccv-HA-nq2" customClass="CalculatorViewController" customModule="A_Level_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Pb-DL-ZFJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,11 +194,20 @@
                                 <rect key="frame" x="155" y="426" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="calculateInsulin:" destination="ccv-HA-nq2" eventType="touchUpInside" id="kpk-0W-oaj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Jne-dE-3nO"/>
                     </view>
+                    <connections>
+                        <outlet property="CHOText" destination="wfd-e3-G3e" id="Vib-W0-It8"/>
+                        <outlet property="glucoseText" destination="nOP-35-IXb" id="dpF-iN-8AT"/>
+                        <outlet property="ratioText" destination="Cu0-Pd-Fcc" id="WTD-BD-Ubx"/>
+                        <outlet property="unitsLabel" destination="uEO-yu-q9q" id="mNO-eN-N0c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkV-YY-rrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
