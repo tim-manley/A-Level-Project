@@ -128,7 +128,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZX-Ok-EZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="905"/>
+            <point key="canvasLocation" x="102" y="802"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Rc7-OI-THe">
+            <objects>
+                <viewController title="Profile" id="XPk-3b-rLJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sAO-Fv-s2p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Vy1-Da-Krv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dl0-hn-8YT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="-670"/>
         </scene>
         <!--Home-->
         <scene sceneID="uB5-fl-NFg">
@@ -146,6 +161,14 @@
                                     <segue destination="ccv-HA-nq2" kind="show" id="Wss-vc-wM9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzt-3i-RxI">
+                                <rect key="frame" x="136" y="222" width="103" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Manage Profile"/>
+                                <connections>
+                                    <segue destination="XPk-3b-rLJ" kind="show" id="rUo-XE-EmW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Z0i-F3-n6T"/>
@@ -153,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7n-ka-yce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="93"/>
+            <point key="canvasLocation" x="966" y="91"/>
         </scene>
         <!--Make Reading-->
         <scene sceneID="Z5o-4W-rgb">
