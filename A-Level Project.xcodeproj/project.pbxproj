@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		30EA90DD9AB693A75C4F99DA /* Pods_A_Level_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D600F20BB026596DD0EF2A /* Pods_A_Level_ProjectUITests.framework */; };
 		64152430D1B9C37AB2A54696 /* Pods_A_Level_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4664D8A6D6C80725C75EF2 /* Pods_A_Level_ProjectTests.framework */; };
+		921B53E12237E65200310457 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 921B53E02237E65200310457 /* GoogleService-Info.plist */; };
 		9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271708322256E870090CBF7 /* CalculatorViewController.swift */; };
+		92A63B2E22293DAB00014A48 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A63B2D22293DAB00014A48 /* RegisterViewController.swift */; };
 		92E3854822020DF0001DE50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3854722020DF0001DE50E /* AppDelegate.swift */; };
 		92E3854A22020DF0001DE50E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3854922020DF0001DE50E /* LoginViewController.swift */; };
 		92E3854D22020DF0001DE50E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E3854B22020DF0001DE50E /* Main.storyboard */; };
@@ -17,7 +19,6 @@
 		92E3855222020DF0001DE50E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E3855022020DF0001DE50E /* LaunchScreen.storyboard */; };
 		92E3855D22020DF0001DE50E /* A_Level_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3855C22020DF0001DE50E /* A_Level_ProjectTests.swift */; };
 		92E3856822020DF0001DE50E /* A_Level_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3856722020DF0001DE50E /* A_Level_ProjectUITests.swift */; };
-		92E3857622021016001DE50E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92E3857522021016001DE50E /* GoogleService-Info.plist */; };
 		D9A8D708A73878BF34AFBD43 /* Pods_A_Level_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B97C87CFA1D3EC9210B5F72 /* Pods_A_Level_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +46,9 @@
 		4B97C87CFA1D3EC9210B5F72 /* Pods_A_Level_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Level_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63945C684726A75DA8374486 /* Pods-A-Level ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Level ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Level ProjectUITests/Pods-A-Level ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		701CDD2425A2CE72C71CB854 /* Pods-A-Level ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Level ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-A-Level ProjectTests/Pods-A-Level ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		921B53E02237E65200310457 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9271708322256E870090CBF7 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		92A63B2D22293DAB00014A48 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		92E3854422020DF0001DE50E /* A-Level Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A-Level Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E3854722020DF0001DE50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E3854922020DF0001DE50E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +62,6 @@
 		92E3856322020DF0001DE50E /* A-Level ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A-Level ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E3856722020DF0001DE50E /* A_Level_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Level_ProjectUITests.swift; sourceTree = "<group>"; };
 		92E3856922020DF0001DE50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92E3857522021016001DE50E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6F317E1D0A96007CAF92AA4 /* Pods-A-Level Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Level Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Level Project/Pods-A-Level Project.debug.xcconfig"; sourceTree = "<group>"; };
 		FBC4D7840D652D1724E5CDAD /* Pods-A-Level ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Level ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Level ProjectTests/Pods-A-Level ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4664D8A6D6C80725C75EF2 /* Pods_A_Level_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Level_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,12 +135,13 @@
 			children = (
 				92E3854722020DF0001DE50E /* AppDelegate.swift */,
 				92E3854922020DF0001DE50E /* LoginViewController.swift */,
+				92A63B2D22293DAB00014A48 /* RegisterViewController.swift */,
 				9271708322256E870090CBF7 /* CalculatorViewController.swift */,
 				92E3854B22020DF0001DE50E /* Main.storyboard */,
 				92E3854E22020DF0001DE50E /* Assets.xcassets */,
 				92E3855022020DF0001DE50E /* LaunchScreen.storyboard */,
 				92E3855322020DF0001DE50E /* Info.plist */,
-				92E3857522021016001DE50E /* GoogleService-Info.plist */,
+				921B53E02237E65200310457 /* GoogleService-Info.plist */,
 			);
 			path = "A-Level Project";
 			sourceTree = "<group>";
@@ -282,7 +285,7 @@
 				92E3855222020DF0001DE50E /* LaunchScreen.storyboard in Resources */,
 				92E3854F22020DF0001DE50E /* Assets.xcassets in Resources */,
 				92E3854D22020DF0001DE50E /* Main.storyboard in Resources */,
-				92E3857622021016001DE50E /* GoogleService-Info.plist in Resources */,
+				921B53E12237E65200310457 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +381,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -385,6 +389,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -403,6 +408,7 @@
 				92E3854A22020DF0001DE50E /* LoginViewController.swift in Sources */,
 				9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */,
 				92E3854822020DF0001DE50E /* AppDelegate.swift in Sources */,
+				92A63B2E22293DAB00014A48 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

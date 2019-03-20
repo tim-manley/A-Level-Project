@@ -26,7 +26,7 @@ class CalculatorViewController: UIViewController {
         let CHO:Int! = Int(CHOText.text!)
         let ratio:Int! = Int(ratioText.text!)
         
-        let unitsRequired = (CHO / ratio) + ((glucose - target) / correctionFactor)
+        let unitsRequired = (CHO / ratio) + ((glucose - target) / correctionFactor) // The equation for insulin requirement
         
         unitsLabel.text = String(unitsRequired) + " Units"
         
