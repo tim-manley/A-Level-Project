@@ -8,20 +8,32 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
+let db = Firestore.firestore()
 
 class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var nameText: UITextField!
     
-    @IBAction func registerUser(_ sender: Any) { // NOT WORKING YET (SAYS USER IS REGISTERED, DOESN'T SHOW ON FIREBASE)
-        
+    @IBAction func registerUser(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!, completion: {(user, error) in
             if error != nil {
                 print(error!)
             }else {
+                let theUser = self.nameText.text!
                 print("User registered")
+                db.collection("users").document(Auth.auth().currentUser!.uid).setData([
+                    "name": theUser
+                    ]){ err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added with ID: \(Auth.auth().currentUser!.uid)")
+                    }
+                }
             }
         })
         
@@ -29,8 +41,6 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
