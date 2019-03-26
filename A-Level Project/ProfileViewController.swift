@@ -9,14 +9,26 @@
 import UIKit
 import Firebase
 
+let dataBase = Firestore.firestore()
 
 class ProfileViewController: UIViewController {
-
+    
+    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var ageText: UITextField!
+    @IBOutlet weak var weightText: UITextField!
+    
+    @IBAction func updateDB(_ sender: Any) {
+        
+        db.collection("users").document(Auth.auth().currentUser!.uid).setData([
+            "name":nameText.text!,
+            "age":Int(ageText.text!)!,
+            "weight":Int(weightText.text!)!
+            ], merge: true)
+        
+    }
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
-        let db = Firestore.firestore()
         
     }
     
