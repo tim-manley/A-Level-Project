@@ -90,6 +90,7 @@
         <!--Register-->
         <scene sceneID="ZQj-xS-RDu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wZX-Ok-EZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Register" id="cgB-kb-eFK" customClass="RegisterViewController" customModule="A_Level_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s0j-hu-n9w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -117,8 +118,8 @@
                                     <action selector="registerUser:" destination="cgB-kb-eFK" eventType="touchUpInside" id="yhE-nC-c45"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnb-x5-8AK">
-                                <rect key="frame" x="117" y="196" width="141" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaC-pP-A5p">
+                                <rect key="frame" x="117" y="201" width="141" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -130,11 +131,10 @@
                     </view>
                     <connections>
                         <outlet property="emailText" destination="2zW-hF-Zxh" id="Sez-9s-TKS"/>
-                        <outlet property="nameText" destination="jnb-x5-8AK" id="C5K-mW-Llf"/>
                         <outlet property="passwordText" destination="4nO-Kf-ji6" id="sY2-86-EQB"/>
+                        <outlet property="usernameText" destination="yaC-pP-A5p" id="wLM-RJ-rg6"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wZX-Ok-EZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101.59999999999999" y="801.94902548725645"/>
         </scene>
@@ -173,6 +173,16 @@
                                 <state key="normal" title="Update"/>
                                 <connections>
                                     <action selector="updateDB:" destination="XPk-3b-rLJ" eventType="touchUpInside" id="XTw-I6-2gM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBR-p7-9ky">
+                                <rect key="frame" x="135" y="447" width="105" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete Account">
+                                    <color key="titleColor" red="0.8980392157" green="0.035294117649999998" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAccount:" destination="XPk-3b-rLJ" eventType="touchUpInside" id="zHW-oC-IcD"/>
                                 </connections>
                             </button>
                         </subviews>

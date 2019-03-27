@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var usernameText: UITextField!
     
+    
     @IBAction func registerUser(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!, completion: {(user, error) in
             if error != nil {

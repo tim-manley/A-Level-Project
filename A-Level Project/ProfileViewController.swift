@@ -9,8 +9,6 @@
 import UIKit
 import Firebase
 
-let dataBase = Firestore.firestore()
-
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var nameText: UITextField!
@@ -27,7 +25,46 @@ class ProfileViewController: UIViewController {
         
     }
     
+    @IBAction func deleteAccount(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        
+        user?.delete {error in
+            if let error = error {
+                // There was an error
+                print("error deleting account", error)
+            } else {
+                // Account deleted
+                print("Account deleted")
+            }
+        }
+        
+        db.collection("users").document(user!.uid).delete() { err in
+            if let err = err {
+                print("error removing document", err)
+            } else {
+                print("Document successfully removed")
+            }
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
+        
+        // Add functionality whereby text fields show already existing data
+        
+        let user = Auth.auth().currentUser
+        let usersDocument = db.collection("users").document(user!.uid)
+        
+        usersDocument.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
         super.viewDidLoad()
         
     }
