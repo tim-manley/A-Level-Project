@@ -12,6 +12,7 @@
 		921B53E12237E65200310457 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 921B53E02237E65200310457 /* GoogleService-Info.plist */; };
 		923196202244EAB400D32BAC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9231961F2244EAB400D32BAC /* ProfileViewController.swift */; };
 		9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271708322256E870090CBF7 /* CalculatorViewController.swift */; };
+		9292F22C224E2C6A00652CA5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */; };
 		92A63B2E22293DAB00014A48 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A63B2D22293DAB00014A48 /* RegisterViewController.swift */; };
 		92E3854822020DF0001DE50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3854722020DF0001DE50E /* AppDelegate.swift */; };
 		92E3854A22020DF0001DE50E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3854922020DF0001DE50E /* LoginViewController.swift */; };
@@ -50,6 +51,7 @@
 		921B53E02237E65200310457 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9231961F2244EAB400D32BAC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9271708322256E870090CBF7 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		92A63B2D22293DAB00014A48 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		92E3854422020DF0001DE50E /* A-Level Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A-Level Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E3854722020DF0001DE50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				9271708322256E870090CBF7 /* CalculatorViewController.swift */,
 				9231961F2244EAB400D32BAC /* ProfileViewController.swift */,
 				92E3854B22020DF0001DE50E /* Main.storyboard */,
+				9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */,
 				92E3854E22020DF0001DE50E /* Assets.xcassets */,
 				92E3855022020DF0001DE50E /* LaunchScreen.storyboard */,
 				92E3855322020DF0001DE50E /* Info.plist */,
@@ -444,6 +447,7 @@
 				92E3854A22020DF0001DE50E /* LoginViewController.swift in Sources */,
 				9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */,
 				923196202244EAB400D32BAC /* ProfileViewController.swift in Sources */,
+				9292F22C224E2C6A00652CA5 /* ChangePasswordViewController.swift in Sources */,
 				92E3854822020DF0001DE50E /* AppDelegate.swift in Sources */,
 				92A63B2E22293DAB00014A48 /* RegisterViewController.swift in Sources */,
 			);
