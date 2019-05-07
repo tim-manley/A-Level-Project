@@ -253,7 +253,7 @@
         <!--Home-->
         <scene sceneID="uB5-fl-NFg">
             <objects>
-                <viewController title="Home" id="BMw-kM-Yn1" sceneMemberID="viewController">
+                <viewController title="Home" id="BMw-kM-Yn1" customClass="HomeViewController" customModule="A_Level_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CfY-K2-G6l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

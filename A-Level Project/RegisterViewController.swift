@@ -18,16 +18,18 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var usernameText: UITextField!
     
+
+    
     
     @IBAction func registerUser(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!, completion: {(user, error) in
             if error != nil {
                 print(error!)
             }else {
-                let theUser = self.usernameText.text!
+                let user = self.usernameText.text!
                 print("User registered")
                 db.collection("users").document(Auth.auth().currentUser!.uid).setData([
-                    "username": theUser
+                    "username": user
                     ]){ err in
                     if let err = err {
                         print("Error adding document: \(err)")

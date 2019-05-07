@@ -17,16 +17,24 @@ class ProfileViewController: UIViewController {
     
     @IBAction func updateDB(_ sender: Any) {
         
-        db.collection("users").document(Auth.auth().currentUser!.uid).setData([
-            "name":nameText.text!,
-            "age":Int(ageText.text!)!,
-            "weight":Int(weightText.text!)!
+        theUser.document.setData([
+            "name":nameText.text ?? ""
             ], merge: true)
+        theUser.document.setData([
+            "age":Int(ageText.text ?? "0")
+            ], merge: true)
+        theUser.document.setData([
+            "weight":Int(weightText.text ?? "0")
+            ], merge: true)
+        
+        theUser.name = nameText.text
+        theUser.age = ageText.text
+        theUser.weight = weightText.text
         
     }
     
     @IBAction func deleteAccount(_ sender: Any) {
-        let user = Auth.auth().currentUser
+        let user = theUser.user
         
         user?.delete {error in
             if let error = error {
@@ -38,7 +46,7 @@ class ProfileViewController: UIViewController {
             }
         }
         
-        db.collection("users").document(user!.uid).delete() { err in
+        theUser.document.delete() { err in
             if let err = err {
                 print("error removing document", err)
             } else {
@@ -50,22 +58,19 @@ class ProfileViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
-        // Add functionality whereby text fields show already existing data
-        
-        let user = Auth.auth().currentUser
-        let usersDocument = db.collection("users").document(user!.uid)
-        
-        usersDocument.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-            } else {
-                print("Document does not exist")
-            }
-        }
-        
+       
         super.viewDidLoad()
+        
+        // set default values for the text fields
+        if let name = theUser.name {
+            nameText.text = (name as! String)
+        }
+        if let age = theUser.age {
+            ageText.text = ("\(age)")
+        }
+        if let weight = theUser.weight {
+            weightText.text = ("\(weight)")
+        }
         
     }
     

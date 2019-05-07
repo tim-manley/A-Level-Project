@@ -8,6 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
+
+var theUser:User! // globally declaring theUser so it can be accessed in all parts of the app
 
 class LoginViewController: UIViewController {
     
@@ -21,6 +24,7 @@ class LoginViewController: UIViewController {
                 print(error!)
             }else{
                 print("login successful")
+                theUser = User()
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
             }
         })

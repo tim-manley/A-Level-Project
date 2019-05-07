@@ -10,10 +10,12 @@
 		30EA90DD9AB693A75C4F99DA /* Pods_A_Level_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D600F20BB026596DD0EF2A /* Pods_A_Level_ProjectUITests.framework */; };
 		64152430D1B9C37AB2A54696 /* Pods_A_Level_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4664D8A6D6C80725C75EF2 /* Pods_A_Level_ProjectTests.framework */; };
 		921B53E12237E65200310457 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 921B53E02237E65200310457 /* GoogleService-Info.plist */; };
+		921C5D2222786E5E003780C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C5D2122786E5E003780C6 /* User.swift */; };
 		923196202244EAB400D32BAC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9231961F2244EAB400D32BAC /* ProfileViewController.swift */; };
 		9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271708322256E870090CBF7 /* CalculatorViewController.swift */; };
 		9292F22C224E2C6A00652CA5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */; };
 		92A63B2E22293DAB00014A48 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A63B2D22293DAB00014A48 /* RegisterViewController.swift */; };
+		92AD3B3B2281A35C0055C098 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AD3B3A2281A35C0055C098 /* HomeViewController.swift */; };
 		92E3854822020DF0001DE50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3854722020DF0001DE50E /* AppDelegate.swift */; };
 		92E3854A22020DF0001DE50E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3854922020DF0001DE50E /* LoginViewController.swift */; };
 		92E3854D22020DF0001DE50E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E3854B22020DF0001DE50E /* Main.storyboard */; };
@@ -49,10 +51,12 @@
 		63945C684726A75DA8374486 /* Pods-A-Level ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Level ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Level ProjectUITests/Pods-A-Level ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		701CDD2425A2CE72C71CB854 /* Pods-A-Level ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Level ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-A-Level ProjectTests/Pods-A-Level ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		921B53E02237E65200310457 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		921C5D2122786E5E003780C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9231961F2244EAB400D32BAC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9271708322256E870090CBF7 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		92A63B2D22293DAB00014A48 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		92AD3B3A2281A35C0055C098 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		92E3854422020DF0001DE50E /* A-Level Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A-Level Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E3854722020DF0001DE50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E3854922020DF0001DE50E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				92E3854922020DF0001DE50E /* LoginViewController.swift */,
 				92A63B2D22293DAB00014A48 /* RegisterViewController.swift */,
 				9271708322256E870090CBF7 /* CalculatorViewController.swift */,
+				921C5D2122786E5E003780C6 /* User.swift */,
+				92AD3B3A2281A35C0055C098 /* HomeViewController.swift */,
 				9231961F2244EAB400D32BAC /* ProfileViewController.swift */,
 				92E3854B22020DF0001DE50E /* Main.storyboard */,
 				9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */,
@@ -447,9 +453,11 @@
 				92E3854A22020DF0001DE50E /* LoginViewController.swift in Sources */,
 				9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */,
 				923196202244EAB400D32BAC /* ProfileViewController.swift in Sources */,
+				92AD3B3B2281A35C0055C098 /* HomeViewController.swift in Sources */,
 				9292F22C224E2C6A00652CA5 /* ChangePasswordViewController.swift in Sources */,
 				92E3854822020DF0001DE50E /* AppDelegate.swift in Sources */,
 				92A63B2E22293DAB00014A48 /* RegisterViewController.swift in Sources */,
+				921C5D2222786E5E003780C6 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
