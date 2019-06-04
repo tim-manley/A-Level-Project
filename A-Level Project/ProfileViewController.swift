@@ -62,8 +62,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         // set default values for the text fields
-        if let name = theUser.name {
-            nameText.text = (name as! String)
+        if let name: String = theUser!.name as? String {
+            if name == "<null>" {
+                nameText.text = nil
+            } else {
+                nameText.text = ("\(name)")
+            }
         }
         if let age = theUser.age {
             ageText.text = ("\(age)")
