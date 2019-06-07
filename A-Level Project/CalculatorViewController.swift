@@ -18,13 +18,13 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func calculateInsulin(_ sender: Any) {
         
-        let target:Int = 120
-        let correctionFactor:Int = 50
+        let target:Float = 7
+        let correctionFactor:Float = 2
         
         // Variables below
-        let glucose:Int! = Int(glucoseText.text!)
-        let CHO:Int! = Int(CHOText.text!)
-        let ratio:Int! = Int(ratioText.text!)
+        let glucose:Float! = Float(glucoseText.text!)
+        let CHO:Float! = Float(CHOText.text!)
+        let ratio:Float! = Float(ratioText.text!)
         
         let unitsRequired = insulinCalculation(target: target, correctionFactor: correctionFactor, glucose: glucose, CHO: CHO, ratio: ratio)
         
@@ -32,9 +32,10 @@ class CalculatorViewController: UIViewController {
         
     }
     
-    func insulinCalculation (target: Int, correctionFactor: Int, glucose: Int, CHO: Int, ratio: Int) -> Int {
-        let result = (CHO / ratio) + ((glucose - target) / correctionFactor) // The equation for insulin requirement
-        return result
+    func insulinCalculation (target: Float, correctionFactor: Float, glucose: Float, CHO: Float, ratio: Float) -> Int {
+        var result = (CHO / ratio) + ((glucose - target) / correctionFactor) // The equation for insulin requirement
+        result = round(result)
+        return Int(result)
     }
     
 
