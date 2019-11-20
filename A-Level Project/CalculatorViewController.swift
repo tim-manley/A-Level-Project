@@ -16,20 +16,31 @@ class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var unitsLabel: UILabel!
     
+    var uid: String? = nil
+    let adaptor = FirebaseAdaptor()
+    var user: User? = nil
+    
     @IBAction func calculateInsulin(_ sender: Any) {
         
-        let target:Float = 7
-        let correctionFactor:Float = 2
+        let target = user!.targetGlucose
+        let correctionFactor = user!.correctionFactor
         
         // Variables below
         let glucose:Float! = Float(glucoseText.text!)
         let CHO:Float! = Float(CHOText.text!)
         let ratio:Float! = Float(ratioText.text!)
         
-        let unitsRequired = insulinCalculation(target: target, correctionFactor: correctionFactor, glucose: glucose, CHO: CHO, ratio: ratio)
+        let unitsRequired = insulinCalculation(target: target!, correctionFactor: Float(correctionFactor!), glucose: glucose, CHO: CHO, ratio: ratio)
         
         unitsLabel.text = String(unitsRequired) + " Units"
         
+        // Add reading to "readings" collection for user
+        let time = Time()
+        
+        let reading = Reading(timeStamp: time.getDate(), bloodGlucose: glucose, carbohydrates: Int(CHO), amountOfInsulin: unitsRequired)
+        
+        user!.readings?.append(reading)
+        adaptor.addReading(user: user!)
     }
     
     func insulinCalculation (target: Float, correctionFactor: Float, glucose: Float, CHO: Float, ratio: Float) -> Int {
@@ -38,10 +49,12 @@ class CalculatorViewController: UIViewController {
         return Int(result)
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        adaptor.getUser(uid: uid!) { user in
+            self.user = user
+        }
         // Do any additional setup after loading the view.
     }
     

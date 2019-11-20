@@ -7,27 +7,24 @@
 //
 
 import UIKit
-import FirebaseAuth
 import Firebase
-
-var theUser:User! // globally declaring theUser so it can be accessed in all parts of the app
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailText: UITextField! 
     @IBOutlet weak var passwordText: UITextField!
     
+    let adaptor = FirebaseAdaptor()
+    
     @IBAction func loginButton(_ sender: Any) {
         
-        Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!, completion: {(user, error) in
-            if error != nil{
-                print(error!)
-            }else{
-                print("login successful")
-                theUser = User()
+        Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { (result, error) in
+            if error != nil {
+                // show alert
+            } else {
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
             }
-        })
+        }
     }
     
     override func viewDidLoad() {

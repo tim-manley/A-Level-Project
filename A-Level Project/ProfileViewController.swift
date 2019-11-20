@@ -14,45 +14,28 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var ageText: UITextField!
     @IBOutlet weak var weightText: UITextField!
+    @IBOutlet weak var targetGlucoseText: UITextField!
+    @IBOutlet weak var correctionFactorText: UITextField!
     
-    @IBAction func updateDB(_ sender: Any) {
+    let adaptor = FirebaseAdaptor()
+    var uid: String? = nil
+    var user: User? = nil
+    
+    @IBAction func save(_ sender: Any) {
+        // set all the values for the user object
+        user!.name = nameText.text
+        user!.age = Int(ageText.text!) ?? nil
+        user!.weight = Float(weightText.text!) ?? nil
+        user!.targetGlucose = Float(targetGlucoseText.text!) ?? nil
+        user!.correctionFactor = Int(correctionFactorText.text!) ?? nil
         
-        theUser.document.setData([
-            "name":nameText.text ?? ""
-            ], merge: true)
-        theUser.document.setData([
-            "age":Int(ageText.text ?? "0")
-            ], merge: true)
-        theUser.document.setData([
-            "weight":Int(weightText.text ?? "0")
-            ], merge: true)
-        
-        theUser.name = nameText.text
-        theUser.age = ageText.text
-        theUser.weight = weightText.text
-        
+        // call the update firebase function from the adaptor
+        // and use the new user object to inform the update
+        adaptor.updateUser(user: user!)
     }
     
     @IBAction func deleteAccount(_ sender: Any) {
-        let user = theUser.user
         
-        user?.delete {error in
-            if let error = error {
-                // There was an error
-                print("error deleting account", error)
-            } else {
-                // Account deleted
-                print("Account deleted")
-            }
-        }
-        
-        theUser.document.delete() { err in
-            if let err = err {
-                print("error removing document", err)
-            } else {
-                print("Document successfully removed")
-            }
-        }
         
     }
     
@@ -60,22 +43,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
-        
-        // set default values for the text fields
-        if let name: String = theUser!.name as? String {
-            if name == "<null>" {
-                nameText.text = nil
-            } else {
-                nameText.text = ("\(name)")
-            }
+        adaptor.getUser(uid: uid!) { user in
+            self.user = user
+            self.nameText.text = self.user!.name?.description
+            self.ageText.text = self.user!.age?.description
+            self.weightText.text = self.user!.weight?.description
+            self.targetGlucoseText.text = self.user!.targetGlucose?.description
+            self.correctionFactorText.text = self.user!.correctionFactor?.description
         }
-        if let age = theUser.age {
-            ageText.text = ("\(age)")
-        }
-        if let weight = theUser.weight {
-            weightText.text = ("\(weight)")
-        }
-        
     }
     
 

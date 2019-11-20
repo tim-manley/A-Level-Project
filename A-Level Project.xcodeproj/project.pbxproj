@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,9 @@
 		921B53E12237E65200310457 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 921B53E02237E65200310457 /* GoogleService-Info.plist */; };
 		921C5D2222786E5E003780C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C5D2122786E5E003780C6 /* User.swift */; };
 		923196202244EAB400D32BAC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9231961F2244EAB400D32BAC /* ProfileViewController.swift */; };
+		92403B74237984030004C279 /* FirebaseAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92403B73237984030004C279 /* FirebaseAdaptor.swift */; };
+		92403B76237993460004C279 /* LightweightUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92403B75237993460004C279 /* LightweightUser.swift */; };
+		92403B78237993860004C279 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92403B77237993860004C279 /* Reading.swift */; };
 		9259979422A6940E008C2FFD /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259979322A6940E008C2FFD /* Validator.swift */; };
 		9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271708322256E870090CBF7 /* CalculatorViewController.swift */; };
 		9292F22C224E2C6A00652CA5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */; };
@@ -24,6 +27,7 @@
 		92E3855222020DF0001DE50E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E3855022020DF0001DE50E /* LaunchScreen.storyboard */; };
 		92E3855D22020DF0001DE50E /* A_Level_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3855C22020DF0001DE50E /* A_Level_ProjectTests.swift */; };
 		92E3856822020DF0001DE50E /* A_Level_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3856722020DF0001DE50E /* A_Level_ProjectUITests.swift */; };
+		92E6301D237DD8D400F166A7 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E6301C237DD8D400F166A7 /* Time.swift */; };
 		D9A8D708A73878BF34AFBD43 /* Pods_A_Level_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B97C87CFA1D3EC9210B5F72 /* Pods_A_Level_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,9 @@
 		921B53E02237E65200310457 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		921C5D2122786E5E003780C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9231961F2244EAB400D32BAC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		92403B73237984030004C279 /* FirebaseAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAdaptor.swift; sourceTree = "<group>"; };
+		92403B75237993460004C279 /* LightweightUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightweightUser.swift; sourceTree = "<group>"; };
+		92403B77237993860004C279 /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		9259979322A6940E008C2FFD /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		9271708322256E870090CBF7 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +79,7 @@
 		92E3856322020DF0001DE50E /* A-Level ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A-Level ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E3856722020DF0001DE50E /* A_Level_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Level_ProjectUITests.swift; sourceTree = "<group>"; };
 		92E3856922020DF0001DE50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92E6301C237DD8D400F166A7 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		D6F317E1D0A96007CAF92AA4 /* Pods-A-Level Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Level Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Level Project/Pods-A-Level Project.debug.xcconfig"; sourceTree = "<group>"; };
 		FBC4D7840D652D1724E5CDAD /* Pods-A-Level ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A-Level ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A-Level ProjectTests/Pods-A-Level ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4664D8A6D6C80725C75EF2 /* Pods_A_Level_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Level_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,15 +152,14 @@
 			isa = PBXGroup;
 			children = (
 				92E3854722020DF0001DE50E /* AppDelegate.swift */,
+				92E6301B237DD89400F166A7 /* Custom Classes */,
 				92E3854922020DF0001DE50E /* LoginViewController.swift */,
-				92A63B2D22293DAB00014A48 /* RegisterViewController.swift */,
-				9259979322A6940E008C2FFD /* Validator.swift */,
-				9271708322256E870090CBF7 /* CalculatorViewController.swift */,
-				921C5D2122786E5E003780C6 /* User.swift */,
 				92AD3B3A2281A35C0055C098 /* HomeViewController.swift */,
+				92A63B2D22293DAB00014A48 /* RegisterViewController.swift */,
+				9271708322256E870090CBF7 /* CalculatorViewController.swift */,
 				9231961F2244EAB400D32BAC /* ProfileViewController.swift */,
-				92E3854B22020DF0001DE50E /* Main.storyboard */,
 				9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */,
+				92E3854B22020DF0001DE50E /* Main.storyboard */,
 				92E3854E22020DF0001DE50E /* Assets.xcassets */,
 				92E3855022020DF0001DE50E /* LaunchScreen.storyboard */,
 				92E3855322020DF0001DE50E /* Info.plist */,
@@ -177,6 +184,19 @@
 				92E3856922020DF0001DE50E /* Info.plist */,
 			);
 			path = "A-Level ProjectUITests";
+			sourceTree = "<group>";
+		};
+		92E6301B237DD89400F166A7 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				92403B73237984030004C279 /* FirebaseAdaptor.swift */,
+				921C5D2122786E5E003780C6 /* User.swift */,
+				92403B75237993460004C279 /* LightweightUser.swift */,
+				9259979322A6940E008C2FFD /* Validator.swift */,
+				92E6301C237DD8D400F166A7 /* Time.swift */,
+				92403B77237993860004C279 /* Reading.swift */,
+			);
+			path = "Custom Classes";
 			sourceTree = "<group>";
 		};
 		C3569F2C747A3E37C2088CFB /* Frameworks */ = {
@@ -394,20 +414,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A33C6325D11245F1DF23FC88 /* [CP] Embed Pods Frameworks */ = {
@@ -416,34 +431,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-A-Level Project/Pods-A-Level Project-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -455,11 +451,15 @@
 			files = (
 				92E3854A22020DF0001DE50E /* LoginViewController.swift in Sources */,
 				9259979422A6940E008C2FFD /* Validator.swift in Sources */,
+				92403B78237993860004C279 /* Reading.swift in Sources */,
 				9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */,
 				923196202244EAB400D32BAC /* ProfileViewController.swift in Sources */,
 				92AD3B3B2281A35C0055C098 /* HomeViewController.swift in Sources */,
+				92E6301D237DD8D400F166A7 /* Time.swift in Sources */,
+				92403B76237993460004C279 /* LightweightUser.swift in Sources */,
 				9292F22C224E2C6A00652CA5 /* ChangePasswordViewController.swift in Sources */,
 				92E3854822020DF0001DE50E /* AppDelegate.swift in Sources */,
+				92403B74237984030004C279 /* FirebaseAdaptor.swift in Sources */,
 				92A63B2E22293DAB00014A48 /* RegisterViewController.swift in Sources */,
 				921C5D2222786E5E003780C6 /* User.swift in Sources */,
 			);

@@ -10,10 +10,33 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController {
-
+    
+    let adaptor = FirebaseAdaptor()
+    var lightweightUser: LightweightUser? = nil
+    var uid: String? = nil
+    
+    @IBOutlet weak var welcomLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        uid = adaptor.getUID()
+        adaptor.getLightweightUser(uid: uid!) { lightweightUser in
+            self.lightweightUser = lightweightUser
+            self.welcomLabel.text = "Hello, " + (lightweightUser.name ?? "")
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "calculatorSegue" {
+            let controller = segue.destination as! CalculatorViewController
+            controller.uid = self.uid
+        } else if segue.identifier == "profileSegue" {
+            let controller = segue.destination as! ProfileViewController
+            controller.uid = self.uid
+        }
     }
     
 
