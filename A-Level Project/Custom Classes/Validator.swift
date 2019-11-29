@@ -24,6 +24,23 @@ class Validator {
                   11: "Password must contain a number",
                   12: "Password must contain an uppercase letter"]
     
+    private func checkForNumber(str: String) -> Bool {
+        for i in 0...9 {
+            if str.contains(String(i)) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    private func checkForUCase(str: String) -> Bool {
+        let lowerCase = str.lowercased()
+        if lowerCase == str {
+            return false
+        }
+        return true
+    }
+    
     func validateUsername(username: String) -> Int? {
         if username.count < 5 {
             return 1
@@ -67,22 +84,7 @@ class Validator {
         return nil
     }
     
-    func checkForNumber(str: String) -> Bool {
-        for i in 0...9 {
-            if str.contains(String(i)) {
-                return true
-            }
-        }
-        return false
-    }
     
-    func checkForUCase(str: String) -> Bool {
-        let lowerCase = str.lowercased()
-        if lowerCase == str {
-            return false
-        }
-        return true
-    }
     
 }
 

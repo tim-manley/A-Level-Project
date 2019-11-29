@@ -14,7 +14,7 @@ class LightweightUser {
     var name: String?
     var readings: [Reading]?
     
-    init(uid: String, name: String?, readings: [Reading]) {
+    init(uid: String, name: String?, readings: [Reading]?) {
         self.uid = uid
         self.name = name
         self.readings = readings

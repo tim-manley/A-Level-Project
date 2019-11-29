@@ -9,6 +9,7 @@ target 'A-Level Project' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Charts'
 
 
   target 'A-Level ProjectTests' do
