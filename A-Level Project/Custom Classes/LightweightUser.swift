@@ -20,5 +20,37 @@ class LightweightUser {
         self.readings = readings
     }
     
+    public func getReadingsInTimescale(timescale: String) -> [Reading]? {
+        
+        if self.readings != nil {
+            let time = Time()
+            var timescaleDate: Date
+            switch timescale {
+            case "Today":
+                timescaleDate = time.getToday()
+            case "Past Week":
+                timescaleDate = time.getOneWeekAgo()
+            case "Past Month":
+                timescaleDate = time.getMonthAgo()
+            case "Past Year":
+                timescaleDate = time.getYearAgo()
+            default:
+                timescaleDate = Date()
+            }
+            
+            var scaledReadings: [Reading] = []
+            
+            for reading in self.readings! {
+                let parsedDate = time.parseDate(date: reading.timeStamp)
+                if parsedDate > timescaleDate {
+                    scaledReadings.append(reading)
+                }
+            }
+            return scaledReadings
+        
+        } else {
+            return nil
+        }
+    }
     
 }

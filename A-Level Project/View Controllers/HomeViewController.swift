@@ -30,21 +30,23 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         self.activityIndicator.startAnimating()
         
-        let timeScale = current.title(for: UIButton.State())
+        let timescale = current.title(for: UIButton.State())
         
         adaptor.getLightweightUser() { lightweightUser in
             self.lightweightUser = lightweightUser
             self.welcomeLabel.text = "Hello, " + (lightweightUser.name ?? "")
             
-            self.setChart(readings: lightweightUser.readings, timeScale: timeScale!)
+            self.setChart(readings: lightweightUser.readings, timescale: timescale!)
             
             self.activityIndicator.stopAnimating()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewDidLoad()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,14 +59,17 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func setChart(readings: [Reading]?, timeScale: String) {
+    func setChart(readings: [Reading]?, timescale: String) {
         
-        if let readings = readings {
+        if readings != nil {
+            
+            let scaledReadings = self.lightweightUser!.getReadingsInTimescale(timescale: timescale)
+            
             var dataEntries: [ChartDataEntry] = []
             
-            for i in 0..<readings.count {
-                let time = readings[i].timeStamp
-                let glucose = readings[i].bloodGlucose
+            for i in 0..<scaledReadings!.count {
+                let time = scaledReadings![i].timeStamp
+                let glucose = scaledReadings![i].bloodGlucose
                 let dataEntry = ChartDataEntry(x: Double(i), y: Double(glucose))
                 
                 dataEntries.append(dataEntry)
@@ -99,28 +104,28 @@ class HomeViewController: UIViewController {
             middle.setTitle("Past Month", for: state)
             bottom.setTitle("Past Year", for: state)
             
-            self.setChart(readings: self.lightweightUser!.readings, timeScale: "Today")
+            self.setChart(readings: self.lightweightUser!.readings, timescale: "Today")
             
         case "Past Week":
             top.setTitle("Today", for: state)
             middle.setTitle("Past Month", for: state)
             bottom.setTitle("Past Year", for: state)
             
-            self.setChart(readings: self.lightweightUser!.readings, timeScale: "Past Week")
+            self.setChart(readings: self.lightweightUser!.readings, timescale: "Past Week")
         
         case "Past Month":
             top.setTitle("Today", for: state)
             middle.setTitle("Past Week", for: state)
             bottom.setTitle("Past Year", for: state)
             
-            self.setChart(readings: self.lightweightUser!.readings, timeScale: "Past Month")
+            self.setChart(readings: self.lightweightUser!.readings, timescale: "Past Month")
             
         case "Past Year":
             top.setTitle("Today", for: state)
             middle.setTitle("Past Week", for: state)
             bottom.setTitle("Past Month", for: state)
             
-            self.setChart(readings: self.lightweightUser!.readings, timeScale: "Past Year")
+            self.setChart(readings: self.lightweightUser!.readings, timescale: "Past Year")
         
         default:
             break
@@ -129,6 +134,8 @@ class HomeViewController: UIViewController {
         timeScaleButtons.forEach { (button) in
             button.isHidden = !button.isHidden
         }
+        
+        self.viewDidLoad()
         
     }
     
