@@ -342,7 +342,11 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="ACv-C2-trZ" id="bjA-ey-y1m"/>
+                        <outlet property="bottom" destination="Vwh-7q-fcx" id="kyz-tU-eOM"/>
+                        <outlet property="current" destination="9ot-bw-Mg5" id="rJg-cU-aJR"/>
                         <outlet property="lineChart" destination="b6V-8R-E5P" id="4KQ-kE-pk8"/>
+                        <outlet property="middle" destination="dXU-cb-MAz" id="oi1-71-hYe"/>
+                        <outlet property="top" destination="IyD-my-pyb" id="WH0-es-Hlw"/>
                         <outlet property="welcomeLabel" destination="pQq-yl-c6P" id="2Of-2U-ehz"/>
                         <outletCollection property="timeScaleButtons" destination="IyD-my-pyb" collectionClass="NSMutableArray" id="ncz-50-F8C"/>
                         <outletCollection property="timeScaleButtons" destination="dXU-cb-MAz" collectionClass="NSMutableArray" id="3Ky-Fk-2f1"/>
