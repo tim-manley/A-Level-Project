@@ -65,13 +65,19 @@ class HomeViewController: UIViewController {
             
             let scaledReadings = self.lightweightUser!.getReadingsInTimescale(timescale: timescale)
             
+            let time = Time()
+            
             var dataEntries: [ChartDataEntry] = []
             
+            var timeStamps: [String] = []
+            
             for i in 0..<scaledReadings!.count {
-                let time = scaledReadings![i].timeStamp
+                let dateTime = scaledReadings![i].timeStamp
+                let axisLabel = time.getTimeStamp(withTimescale: timescale, timeStamp: dateTime)
                 let glucose = scaledReadings![i].bloodGlucose
                 let dataEntry = ChartDataEntry(x: Double(i), y: Double(glucose))
                 
+                timeStamps.append(axisLabel)
                 dataEntries.append(dataEntry)
             }
             
@@ -79,6 +85,9 @@ class HomeViewController: UIViewController {
             let lineChartData = LineChartData(dataSet: lineChartDataSet)
             
             lineChart.data = lineChartData
+            lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: timeStamps)
+            lineChart.xAxis.granularity = 1
+            lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
         }
     }
     

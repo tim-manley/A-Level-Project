@@ -12,7 +12,8 @@ class Time {
     
     func getDate() -> String {
         
-        let date = self.getSomeTimeAgo() // For adding readings at earlier dates
+        let date = Date()
+        //let date = self.getSomeTimeAgo() // For adding readings at earlier dates
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -65,4 +66,25 @@ class Time {
         return parsedDate!
     }
     
+    func getTimeStamp(withTimescale: String, timeStamp: String) -> String {
+        
+        var axisLabel: String
+        
+        switch withTimescale {
+        case "Today":
+            axisLabel = String(timeStamp.split(separator: " ")[1])
+        case "Past Week":
+            axisLabel = String(timeStamp.split(separator: " ")[0])
+        case "Past Month":
+            axisLabel = String(timeStamp.split(separator: " ")[0])
+        case "Past Year":
+            let date = String(timeStamp.split(separator: " ")[0])
+            axisLabel = String(date.split(separator: "-")[0] + "-" + date.split(separator: "-")[1])
+        default:
+            axisLabel = timeStamp
+        }
+        
+        
+        return axisLabel
+    }
 }
