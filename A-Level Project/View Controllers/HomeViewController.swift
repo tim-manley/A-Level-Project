@@ -64,31 +64,64 @@ class HomeViewController: UIViewController {
         if readings != nil {
             
             let scaledReadings = self.lightweightUser!.getReadingsInTimescale(timescale: timescale)
-            
-            let time = Time()
-            
             var dataEntries: [ChartDataEntry] = []
             
-            var timeStamps: [String] = []
+            let timeStampedAverages = averagesOfReadingsWithSameAxisLabel(scaledReadings: scaledReadings!, timescale: timescale)
             
-            for i in 0..<scaledReadings!.count {
-                let dateTime = scaledReadings![i].timeStamp
-                let axisLabel = time.getTimeStamp(withTimescale: timescale, timeStamp: dateTime)
-                let glucose = scaledReadings![i].bloodGlucose
-                let dataEntry = ChartDataEntry(x: Double(i), y: Double(glucose))
-                
-                timeStamps.append(axisLabel)
+            var axisLabels: [String] = []
+            
+            for i in 0..<timeStampedAverages.count {
+                let (axisLabel, value) = timeStampedAverages[i]
+                let dataEntry = ChartDataEntry(x: Double(i), y: Double(value))
                 dataEntries.append(dataEntry)
+                axisLabels.append(axisLabel)
             }
             
             let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Glucose Level")
             let lineChartData = LineChartData(dataSet: lineChartDataSet)
             
             lineChart.data = lineChartData
-            lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: timeStamps)
+            lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: axisLabels)
             lineChart.xAxis.granularity = 1
             lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
         }
+    }
+    
+    // Find all the readings with the same axis label, then find the average of those readings and add it to dataEntries
+    func averagesOfReadingsWithSameAxisLabel(scaledReadings: [Reading], timescale: String) -> [(String, Double)] {
+        
+        var timeStampedAverages: [(String, Double)] = [] // Stored as an array of tuples to keep track of each data point's value and axis label
+        
+        let time = Time()
+        
+        var i = 0
+        while i < scaledReadings.count {
+            let currentReading = scaledReadings[i]
+            let currentTimeStamp = currentReading.timeStamp
+            let currentAxisLabel = time.getAxisLabel(withTimescale: timescale, timeStamp: currentTimeStamp)
+            var tempArray: [Float] = []
+            var j = 1
+            var finished = false
+            while finished == false && j < scaledReadings.count - i {
+                let comparisonReading = scaledReadings[i+j]
+                let comparisonTimeStamp = comparisonReading.timeStamp
+                let comparisonAxisLabel = time.getAxisLabel(withTimescale: timescale, timeStamp: comparisonTimeStamp)
+                if comparisonAxisLabel == currentAxisLabel {
+                    tempArray.append(comparisonReading.bloodGlucose)
+                    j += 1
+                } else {
+                    finished = true
+                }
+            }
+            tempArray.append(currentReading.bloodGlucose)
+            let sumOfTemp = tempArray.reduce(0, +)
+            let averageOfTemp = sumOfTemp / Float(tempArray.count)
+            timeStampedAverages.append((currentAxisLabel, Double(averageOfTemp)))
+            
+            i += j
+        }
+        
+        return timeStampedAverages
     }
     
     @IBAction func dropDownButton(_ sender: UIButton) {

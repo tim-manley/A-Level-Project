@@ -66,7 +66,7 @@ class Time {
         return parsedDate!
     }
     
-    func getTimeStamp(withTimescale: String, timeStamp: String) -> String {
+    func getAxisLabel(withTimescale: String, timeStamp: String) -> String {
         
         var axisLabel: String
         
