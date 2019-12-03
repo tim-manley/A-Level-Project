@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     let adaptor = FirebaseAdaptor()
     
     @IBAction func loginButton(_ sender: Any) {
-        
+
         Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { (result, error) in
             if error != nil {
                 self.createAlert(title: "Login Failed", message: "Invalid email or password")
@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var test: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
