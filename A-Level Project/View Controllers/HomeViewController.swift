@@ -12,6 +12,8 @@ import Charts
 
 class HomeViewController: UIViewController {
     
+    let transition = SlideTransition()
+    
     let adaptor = FirebaseAdaptor()
     var lightweightUser: LightweightUser? = nil
     var uid: String? = nil
@@ -30,8 +32,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         self.activityIndicator.startAnimating()
+        
+        configureNavBar()
         
         let timescale = current.title(for: UIButton.State())
         
@@ -45,10 +53,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.viewDidLoad()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "calculatorSegue" {
             let controller = segue.destination as! CalculatorViewController
@@ -56,6 +60,61 @@ class HomeViewController: UIViewController {
         } else if segue.identifier == "profileSegue" {
             let controller = segue.destination as! ProfileViewController
             controller.uid = self.uid
+        }
+    }
+    
+    
+    func configureNavBar() {
+        
+        let navBar = navigationController?.navigationBar
+        
+        navBar?.barTintColor = #colorLiteral(red: 0.38234514, green: 0.3826470375, blue: 0.9782263637, alpha: 1)
+        
+        addNavBarImage()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "HamburgerMenu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(didTapMenu))
+    }
+    
+    func addNavBarImage() {
+        
+        let navBar = navigationController!.navigationBar
+        
+        let image = #imageLiteral(resourceName: "Home")
+        let imageView = UIImageView(image: image)
+        
+        let bannerWidth = navBar.frame.size.width
+        let bannerHeight = navBar.frame.size.height
+        
+        let bannerX = bannerWidth / 2 - image.size.width
+        let bannerY = bannerHeight / 2 - image.size.height / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .center
+        
+        navigationItem.titleView = imageView
+    }
+    
+    @objc func didTapMenu() {
+        
+        guard let menuController = storyboard?.instantiateViewController(identifier: "menuController") as? SideMenuController else { return }
+        menuController.didTapMenuType = { menuType in
+            // add transition to other views
+            self.transitionToNew(menuType)
+        }
+        menuController.modalPresentationStyle = .overCurrentContext
+        menuController.transitioningDelegate = self
+        present(menuController, animated: true)
+    }
+    
+    func transitionToNew(_ menuType: MenuType) {
+        switch menuType {
+        case .home:
+            break
+        case .profile:
+            self.performSegue(withIdentifier: "profileSegue", sender: self)
+        case .logout:
+            // Return to login
+            navigationController?.popToRootViewController(animated: true)
         }
     }
     
@@ -180,18 +239,18 @@ class HomeViewController: UIViewController {
         self.viewDidLoad()
         
     }
-    
-    
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension HomeViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = true
+        return transition
     }
-    */
-
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = false
+        return transition
+    }
 }

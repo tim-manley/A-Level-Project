@@ -16,6 +16,24 @@ class LoginViewController: UIViewController {
     
     let adaptor = FirebaseAdaptor()
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     @IBAction func loginButton(_ sender: Any) {
 
         Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { (result, error) in
@@ -25,12 +43,6 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
             }
         }
-    }
-    
-    @IBOutlet weak var test: UIButton!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     // This function manages the UI for displaying alerts
