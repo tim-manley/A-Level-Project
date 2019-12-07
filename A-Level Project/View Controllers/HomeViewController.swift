@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    
+    // Configure the nav bar to conform to the ui
     func configureNavBar() {
         
         let navBar = navigationController?.navigationBar
@@ -72,9 +72,10 @@ class HomeViewController: UIViewController {
         
         addNavBarImage()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "HamburgerMenu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(didTapMenu))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "HamburgerMenu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(didTapMenu)) // When the left button is pressed, the didTapMenu() function is called
     }
     
+    // Add the title asset to the nav bar
     func addNavBarImage() {
         
         let navBar = navigationController!.navigationBar
@@ -94,18 +95,21 @@ class HomeViewController: UIViewController {
         navigationItem.titleView = imageView
     }
     
+    // On menu button press, display the side menu
     @objc func didTapMenu() {
         
         guard let menuController = storyboard?.instantiateViewController(identifier: "menuController") as? SideMenuController else { return }
+        
         menuController.didTapMenuType = { menuType in
             // add transition to other views
             self.transitionToNew(menuType)
         }
-        menuController.modalPresentationStyle = .overCurrentContext
+        menuController.modalPresentationStyle = .overCurrentContext // Overlays the screen
         menuController.transitioningDelegate = self
         present(menuController, animated: true)
     }
     
+    // Detects which button has been pressed and then segues to that view
     func transitionToNew(_ menuType: MenuType) {
         switch menuType {
         case .home:
@@ -118,6 +122,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    // Set up and display the graph
     func setChart(readings: [Reading]?, timescale: String) {
         
         if readings != nil {
@@ -125,7 +130,7 @@ class HomeViewController: UIViewController {
             let scaledReadings = self.lightweightUser!.getReadingsInTimescale(timescale: timescale)
             var dataEntries: [ChartDataEntry] = []
             
-            let timeStampedAverages = averagesOfReadingsWithSameAxisLabel(scaledReadings: scaledReadings!, timescale: timescale)
+            let timeStampedAverages = averagesOfReadingsWithSameAxisLabel(readings: scaledReadings!, timescale: timescale)
             
             var axisLabels: [String] = []
             
@@ -146,43 +151,65 @@ class HomeViewController: UIViewController {
         }
     }
     
-    // Find all the readings with the same axis label, then find the average of those readings and add it to dataEntries
-    func averagesOfReadingsWithSameAxisLabel(scaledReadings: [Reading], timescale: String) -> [(String, Double)] {
+    // Find all the readings with the same axis label, then find the average of those readings.
+    func averagesOfReadingsWithSameAxisLabel(readings: [Reading], timescale: String) -> [(String, Double)] {
         
         var timeStampedAverages: [(String, Double)] = [] // Stored as an array of tuples to keep track of each data point's value and axis label
         
-        let time = Time()
-        
         var i = 0
-        while i < scaledReadings.count {
-            let currentReading = scaledReadings[i]
-            let currentTimeStamp = currentReading.timeStamp
-            let currentAxisLabel = time.getAxisLabel(withTimescale: timescale, timeStamp: currentTimeStamp)
-            var tempArray: [Float] = []
+        while i < readings.count { // Ensures no index out of range errors
+            let currentReading = readings[i]
+            let currentAxisLabel = self.getAxisLabel(withTimescale: timescale, timeStamp: currentReading.timeStamp)
+            var tempArray: [Float] = [currentReading.bloodGlucose] // Temporarily stores all the readings with the same axis label
             var j = 1
             var finished = false
-            while finished == false && j < scaledReadings.count - i {
-                let comparisonReading = scaledReadings[i+j]
-                let comparisonTimeStamp = comparisonReading.timeStamp
-                let comparisonAxisLabel = time.getAxisLabel(withTimescale: timescale, timeStamp: comparisonTimeStamp)
-                if comparisonAxisLabel == currentAxisLabel {
+            while finished == false && j < readings.count - i { // Loop through all the readings with the same axis label
+                let comparisonReading = readings[i+j]
+                let comparisonAxisLabel = self.getAxisLabel(withTimescale: timescale, timeStamp: comparisonReading.timeStamp)
+                if comparisonAxisLabel == currentAxisLabel { // Check if the axis labels are the same
                     tempArray.append(comparisonReading.bloodGlucose)
-                    j += 1
-                } else {
+                    j += 1 // Move onto next reading
+                } else { // If axis labels are different, break from the loop
                     finished = true
                 }
             }
-            tempArray.append(currentReading.bloodGlucose)
+            
+            // Calculate average of readings with same axis label
             let sumOfTemp = tempArray.reduce(0, +)
             let averageOfTemp = sumOfTemp / Float(tempArray.count)
+            
             timeStampedAverages.append((currentAxisLabel, Double(averageOfTemp)))
             
-            i += j
+            i += j // Repeat with the first reading with a different timestamp
         }
         
         return timeStampedAverages
     }
     
+    // Simplifies the date and time string to look nicer on the graph
+    func getAxisLabel(withTimescale: String, timeStamp: String) -> String {
+        
+        var axisLabel: String
+        
+        switch withTimescale {
+        case "Today": // Isolate the time component of the date time (since all readings are on the same day)
+            axisLabel = String(timeStamp.split(separator: " ")[1])
+        case "Past Week": // Isolate the date component of the date time
+            axisLabel = String(timeStamp.split(separator: " ")[0])
+        case "Past Month": // Isolate the date component of the date time
+            axisLabel = String(timeStamp.split(separator: " ")[0])
+        case "Past Year": // Isolate the month component of the date time
+            let date = String(timeStamp.split(separator: " ")[0])
+            axisLabel = String(date.split(separator: "-")[0] + "-" + date.split(separator: "-")[1])
+        default:
+            axisLabel = timeStamp
+        }
+        
+        
+        return axisLabel
+    }
+    
+    // Drop down the timescale selection buttons
     @IBAction func dropDownButton(_ sender: UIButton) {
         
         timeScaleButtons.forEach { (button) in
@@ -194,6 +221,7 @@ class HomeViewController: UIViewController {
         
     }
     
+    // When a timescale button is pressed, rearrange the buttons in order (with selected at top) and redraw the chart
     @IBAction func changeTimeScale(_ sender: UIButton) {
         
         let state = UIButton.State()
@@ -238,11 +266,7 @@ class HomeViewController: UIViewController {
         timeScaleButtons.forEach { (button) in
             button.isHidden = !button.isHidden
         }
-        
-        self.viewDidLoad()
-        
     }
-
 }
 
 extension HomeViewController: UIViewControllerTransitioningDelegate {

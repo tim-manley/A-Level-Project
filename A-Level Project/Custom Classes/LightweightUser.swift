@@ -20,6 +20,7 @@ class LightweightUser {
         self.readings = readings
     }
     
+    // Gets all of the readings within the specified timescale (for displaying on graph)
     public func getReadingsInTimescale(timescale: String) -> [Reading]? {
         
         if self.readings != nil {
@@ -27,7 +28,7 @@ class LightweightUser {
             var timescaleDate: Date
             switch timescale {
             case "Today":
-                timescaleDate = time.getToday()
+                timescaleDate = time.getYesterday()
             case "Past Week":
                 timescaleDate = time.getOneWeekAgo()
             case "Past Month":
