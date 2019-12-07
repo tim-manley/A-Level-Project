@@ -17,7 +17,6 @@
 		92403B78237993860004C279 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92403B77237993860004C279 /* Reading.swift */; };
 		9259979422A6940E008C2FFD /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259979322A6940E008C2FFD /* Validator.swift */; };
 		9271708422256E870090CBF7 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271708322256E870090CBF7 /* CalculatorViewController.swift */; };
-		9280A1BD23990FEF0068153E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280A1BC23990FEF0068153E /* Protocols.swift */; };
 		9280A1BF239918420068153E /* SlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280A1BE239918420068153E /* SlideTransition.swift */; };
 		928B0CAA239826B30014C20F /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B0CA9239826B30014C20F /* SideMenuController.swift */; };
 		9292F22C224E2C6A00652CA5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */; };
@@ -66,7 +65,6 @@
 		92403B77237993860004C279 /* Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		9259979322A6940E008C2FFD /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		9271708322256E870090CBF7 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
-		9280A1BC23990FEF0068153E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		9280A1BE239918420068153E /* SlideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTransition.swift; sourceTree = "<group>"; };
 		928B0CA9239826B30014C20F /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		9292F22B224E2C6A00652CA5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -157,14 +155,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		9280A1BB23990FD90068153E /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				9280A1BC23990FEF0068153E /* Protocols.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		92E3853B22020DF0001DE50E = {
 			isa = PBXGroup;
 			children = (
@@ -191,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				92E3854722020DF0001DE50E /* AppDelegate.swift */,
-				9280A1BB23990FD90068153E /* Utils */,
 				926577282385AE1F0015FB4D /* Storyboards */,
 				92E6301B237DD89400F166A7 /* Custom Classes */,
 				926577272385ADEF0015FB4D /* View Controllers */,
@@ -480,7 +469,6 @@
 				9280A1BF239918420068153E /* SlideTransition.swift in Sources */,
 				92A63B2E22293DAB00014A48 /* RegisterViewController.swift in Sources */,
 				921C5D2222786E5E003780C6 /* User.swift in Sources */,
-				9280A1BD23990FEF0068153E /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

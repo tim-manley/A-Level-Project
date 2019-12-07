@@ -296,23 +296,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Rectangle 13" translatesAutoresizingMaskIntoConstraints="NO" id="8c6-M2-mCU">
-                                <rect key="frame" x="0.0" y="-2" width="414" height="900"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="Rectangle 13" translatesAutoresizingMaskIntoConstraints="NO" id="8c6-M2-mCU">
+                                <rect key="frame" x="-207" y="-2" width="828" height="900"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ig3-ok-qIt" customClass="newButton" customModule="A_Level_Project" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ig3-ok-qIt" customClass="newButton" customModule="A_Level_Project" customModuleProvider="target">
                                 <rect key="frame" x="156" y="730" width="103" height="103"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Plus" backgroundImage="Ellipse 1"/>
                                 <connections>
                                     <segue destination="ccv-HA-nq2" kind="show" identifier="calculatorSegue" id="Wss-vc-wM9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzt-3i-RxI">
-                                <rect key="frame" x="100" y="96.5" width="214" height="30"/>
-                                <state key="normal" title="Manage Profile"/>
-                                <connections>
-                                    <segue destination="XPk-3b-rLJ" kind="show" identifier="profileSegue" id="rUo-XE-EmW"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ACv-C2-trZ">
@@ -368,19 +359,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ACv-C2-trZ" firstAttribute="centerX" secondItem="qzt-3i-RxI" secondAttribute="centerX" id="1Mu-NL-DDr"/>
                             <constraint firstItem="b6V-8R-E5P" firstAttribute="leading" secondItem="CfY-K2-G6l" secondAttribute="leadingMargin" id="9yx-sc-9Yb"/>
-                            <constraint firstItem="b6V-8R-E5P" firstAttribute="top" secondItem="qzt-3i-RxI" secondAttribute="bottom" constant="33.5" id="BtW-gC-ld9"/>
-                            <constraint firstItem="qzt-3i-RxI" firstAttribute="leading" secondItem="Z0i-F3-n6T" secondAttribute="leading" constant="100" id="HgQ-xh-jW5"/>
                             <constraint firstItem="UQb-I6-eWC" firstAttribute="top" secondItem="b6V-8R-E5P" secondAttribute="bottom" constant="21" id="In8-wL-d52"/>
                             <constraint firstItem="pQq-yl-c6P" firstAttribute="top" secondItem="Z0i-F3-n6T" secondAttribute="top" constant="10" id="M0l-YV-vY3"/>
+                            <constraint firstItem="b6V-8R-E5P" firstAttribute="top" secondItem="pQq-yl-c6P" secondAttribute="bottom" constant="78.5" id="T8O-R2-rkF"/>
                             <constraint firstItem="pQq-yl-c6P" firstAttribute="leading" secondItem="Z0i-F3-n6T" secondAttribute="leading" constant="100" id="Tds-YP-vaH"/>
+                            <constraint firstItem="b6V-8R-E5P" firstAttribute="centerX" secondItem="8c6-M2-mCU" secondAttribute="centerX" id="VVK-AZ-Igl"/>
                             <constraint firstItem="Z0i-F3-n6T" firstAttribute="trailing" secondItem="pQq-yl-c6P" secondAttribute="trailing" constant="100" id="WQW-ox-fVj"/>
                             <constraint firstItem="ACv-C2-trZ" firstAttribute="centerY" secondItem="CfY-K2-G6l" secondAttribute="centerY" id="aEv-n3-8XH"/>
-                            <constraint firstItem="qzt-3i-RxI" firstAttribute="top" secondItem="pQq-yl-c6P" secondAttribute="bottom" constant="15" id="bmw-I9-BnA"/>
                             <constraint firstItem="b6V-8R-E5P" firstAttribute="leading" secondItem="UQb-I6-eWC" secondAttribute="leading" id="gzG-cs-i08"/>
+                            <constraint firstItem="ig3-ok-qIt" firstAttribute="leading" secondItem="Z0i-F3-n6T" secondAttribute="leading" constant="156" id="ozB-qg-DSb"/>
                             <constraint firstItem="b6V-8R-E5P" firstAttribute="centerX" secondItem="ACv-C2-trZ" secondAttribute="centerX" id="p4P-kc-tQA"/>
-                            <constraint firstItem="Z0i-F3-n6T" firstAttribute="trailing" secondItem="qzt-3i-RxI" secondAttribute="trailing" constant="100" id="pTR-QD-CIb"/>
+                            <constraint firstItem="Z0i-F3-n6T" firstAttribute="bottom" secondItem="ig3-ok-qIt" secondAttribute="bottom" constant="29" id="pAj-5y-Yef"/>
+                            <constraint firstItem="b6V-8R-E5P" firstAttribute="centerX" secondItem="ig3-ok-qIt" secondAttribute="centerX" id="vno-M6-0Xp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z0i-F3-n6T"/>
                     </view>
@@ -395,11 +386,12 @@
                         <outletCollection property="timeScaleButtons" destination="IyD-my-pyb" collectionClass="NSMutableArray" id="ncz-50-F8C"/>
                         <outletCollection property="timeScaleButtons" destination="dXU-cb-MAz" collectionClass="NSMutableArray" id="3Ky-Fk-2f1"/>
                         <outletCollection property="timeScaleButtons" destination="Vwh-7q-fcx" collectionClass="NSMutableArray" id="tyh-YW-L4n"/>
+                        <segue destination="XPk-3b-rLJ" kind="show" identifier="profileSegue" id="4Z4-5k-wEN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7n-ka-yce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="965.21739130434787" y="90.401785714285708"/>
+            <point key="canvasLocation" x="965" y="92"/>
         </scene>
         <!--Side Menu Controller-->
         <scene sceneID="pHM-hi-JGK">
@@ -540,7 +532,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVz-x5-fMj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794.2028985507247" y="73.660714285714278"/>
+            <point key="canvasLocation" x="1796" y="92"/>
         </scene>
         <!--Make Reading-->
         <scene sceneID="Z5o-4W-rgb">

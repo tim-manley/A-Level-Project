@@ -186,7 +186,10 @@ class HomeViewController: UIViewController {
     @IBAction func dropDownButton(_ sender: UIButton) {
         
         timeScaleButtons.forEach { (button) in
-            button.isHidden = !button.isHidden
+            UIView.animate(withDuration: 0.3) {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            }
         }
         
     }
