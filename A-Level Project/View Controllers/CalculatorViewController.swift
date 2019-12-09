@@ -20,26 +20,53 @@ class CalculatorViewController: UIViewController {
     let adaptor = FirebaseAdaptor()
     var user: User? = nil
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        adaptor.getUser() { user in
+            self.user = user // Instantiate the current user object
+        }
+    }
+    
     @IBAction func calculateInsulin(_ sender: Any) {
         
-        let target = user!.targetGlucose
-        let correctionFactor = user!.correctionFactor
+        // The user specific values
+        guard let target = user!.targetGlucose else {
+            self.createAlert(title: "No user blood glucose target",
+                             message: "You must first set a blood glucose target, go to: Manage Profile.")
+            return
+        }
+        guard let correctionFactor = user!.correctionFactor else {
+            self.createAlert(title: "No user correction factor",
+                             message: "You must first set a correction factor for your insulin, go to: Manage Profile.")
+            return
+        }
         
-        // Variables below
+        // Reading specific variables below
         let glucose:Float! = Float(glucoseText.text!)
         let CHO:Float! = Float(CHOText.text!)
         let ratio:Float! = Float(ratioText.text!)
         
-        let unitsRequired = insulinCalculation(target: target!, correctionFactor: Float(correctionFactor!), glucose: glucose, CHO: CHO, ratio: ratio)
+        let unitsRequired = insulinCalculation(target: target,
+                                               correctionFactor: Float(correctionFactor),
+                                               glucose: glucose,
+                                               CHO: CHO,
+                                               ratio: ratio)
         
         unitsLabel.text = String(unitsRequired) + " Units"
         
-        // Add reading to "readings" collection for user
-        let time = Time()
+        let time = Time() // Use the time class to get the reading's timestamp
         
-        let reading = Reading(timeStamp: time.getDate(), bloodGlucose: glucose, carbohydrates: Int(CHO), amountOfInsulin: unitsRequired)
+        // Create a reading object with the field values
+        let reading = Reading(timeStamp: time.getDate(),
+                              bloodGlucose: glucose,
+                              carbohydrates: Int(CHO),
+                              amountOfInsulin: unitsRequired)
         
+        // Add the reading to the user's list of readings
         user!.readings?.append(reading)
+        
+        // Update firebase with the new reading
         adaptor.addReading(user: user!)
     }
     
@@ -49,13 +76,14 @@ class CalculatorViewController: UIViewController {
         return Int(result)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // This function manages the UI for displaying alerts
+    func createAlert(title: String, message: String) {
         
-        adaptor.getUser() { user in
-            self.user = user
-        }
-        // Do any additional setup after loading the view.
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 
