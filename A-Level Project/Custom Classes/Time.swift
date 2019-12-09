@@ -65,8 +65,6 @@ class Time {
         return parsedDate!
     }
     
-    
-    
     // Testing function
     private func getSomeTimeAgo() -> Date {
         

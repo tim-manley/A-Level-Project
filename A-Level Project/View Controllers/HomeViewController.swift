@@ -225,10 +225,11 @@ class HomeViewController: UIViewController {
     @IBAction func changeTimeScale(_ sender: UIButton) {
         
         let state = UIButton.State()
-        let selectedTitle = sender.title(for: state)
+        let selectedTitle = sender.title(for: state) // Detects the title of the pressed button
         
         current.setTitle(selectedTitle, for: state)
         
+        // Different options based on which button is pressed
         switch selectedTitle {
             
         case "Today":
@@ -263,6 +264,7 @@ class HomeViewController: UIViewController {
             break
         }
         
+        // Hide the dropdown menu when a button has been pressed
         timeScaleButtons.forEach { (button) in
             button.isHidden = !button.isHidden
         }
