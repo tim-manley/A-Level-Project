@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
         
         configureNavBar()
         
-        let timescale = current.title(for: UIButton.State())
+        let timescale = DropdownType(rawValue: current.title(for: UIButton.State())!)
         
         adaptor.getLightweightUser() { lightweightUser in
             self.lightweightUser = lightweightUser
@@ -123,7 +123,7 @@ class HomeViewController: UIViewController {
     }
     
     // Set up and display the graph
-    func setChart(readings: [Reading]?, timescale: String) {
+    func setChart(readings: [Reading]?, timescale: DropdownType) {
         
         if readings != nil {
             
@@ -152,7 +152,7 @@ class HomeViewController: UIViewController {
     }
     
     // Find all the readings with the same axis label, then find the average of those readings.
-    func averagesOfReadingsWithSameAxisLabel(readings: [Reading], timescale: String) -> [(String, Double)] {
+    func averagesOfReadingsWithSameAxisLabel(readings: [Reading], timescale: DropdownType) -> [(String, Double)] {
         
         var timeStampedAverages: [(String, Double)] = [] // Stored as an array of tuples to keep track of each data point's value and axis label
         
@@ -187,22 +187,20 @@ class HomeViewController: UIViewController {
     }
     
     // Simplifies the date and time string to look nicer on the graph
-    func getAxisLabel(withTimescale: String, timeStamp: String) -> String {
+    func getAxisLabel(withTimescale: DropdownType, timeStamp: String) -> String {
         
         var axisLabel: String
         
         switch withTimescale {
-        case "Today": // Isolate the time component of the date time (since all readings are on the same day)
+        case .today: // Isolate the time component of the date time (since all readings are on the same day)
             axisLabel = String(timeStamp.split(separator: " ")[1])
-        case "Past Week": // Isolate the date component of the date time
+        case .pastWeek: // Isolate the date component of the date time
             axisLabel = String(timeStamp.split(separator: " ")[0])
-        case "Past Month": // Isolate the date component of the date time
+        case .pastMonth: // Isolate the date component of the date time
             axisLabel = String(timeStamp.split(separator: " ")[0])
-        case "Past Year": // Isolate the month component of the date time
+        case .pastYear: // Isolate the month component of the date time
             let date = String(timeStamp.split(separator: " ")[0])
             axisLabel = String(date.split(separator: "-")[0] + "-" + date.split(separator: "-")[1])
-        default:
-            axisLabel = timeStamp
         }
         
         
@@ -218,7 +216,6 @@ class HomeViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
-        
     }
     
     // When a timescale button is pressed, rearrange the buttons in order (with selected at top) and redraw the chart
@@ -227,43 +224,41 @@ class HomeViewController: UIViewController {
         let state = UIButton.State()
         let selectedTitle = sender.title(for: state) // Detects the title of the pressed button
         
+        guard let dropdownType = DropdownType(rawValue: selectedTitle!) else { return }
+        
         current.setTitle(selectedTitle, for: state)
         
         // Different options based on which button is pressed
-        switch selectedTitle {
+        switch dropdownType {
             
-        case "Today":
+        case .today:
             top.setTitle("Past Week", for: state)
             middle.setTitle("Past Month", for: state)
             bottom.setTitle("Past Year", for: state)
             
-            self.setChart(readings: self.lightweightUser!.readings, timescale: "Today")
+            self.setChart(readings: self.lightweightUser!.readings, timescale: dropdownType)
             
-        case "Past Week":
+        case .pastWeek:
             top.setTitle("Today", for: state)
             middle.setTitle("Past Month", for: state)
             bottom.setTitle("Past Year", for: state)
             
-            self.setChart(readings: self.lightweightUser!.readings, timescale: "Past Week")
+            self.setChart(readings: self.lightweightUser!.readings, timescale: dropdownType)
         
-        case "Past Month":
+        case .pastMonth:
             top.setTitle("Today", for: state)
             middle.setTitle("Past Week", for: state)
             bottom.setTitle("Past Year", for: state)
             
-            self.setChart(readings: self.lightweightUser!.readings, timescale: "Past Month")
+            self.setChart(readings: self.lightweightUser!.readings, timescale: dropdownType)
             
-        case "Past Year":
+        case .pastYear:
             top.setTitle("Today", for: state)
             middle.setTitle("Past Week", for: state)
             bottom.setTitle("Past Month", for: state)
             
-            self.setChart(readings: self.lightweightUser!.readings, timescale: "Past Year")
-        
-        default:
-            break
+            self.setChart(readings: self.lightweightUser!.readings, timescale: dropdownType)
         }
-        
         // Hide the dropdown menu when a button has been pressed
         timeScaleButtons.forEach { (button) in
             button.isHidden = !button.isHidden

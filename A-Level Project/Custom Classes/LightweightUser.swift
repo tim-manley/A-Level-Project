@@ -21,24 +21,21 @@ class LightweightUser {
     }
     
     // Gets all of the readings within the specified timescale (for displaying on graph)
-    public func getReadingsInTimescale(timescale: String) -> [Reading]? {
+    public func getReadingsInTimescale(timescale: DropdownType) -> [Reading]? {
         
         if self.readings != nil {
             let time = Time()
             var timescaleDate: Date
             switch timescale {
-            case "Today":
+            case .today:
                 timescaleDate = time.getYesterday()
-            case "Past Week":
+            case .pastWeek:
                 timescaleDate = time.getOneWeekAgo()
-            case "Past Month":
+            case .pastMonth:
                 timescaleDate = time.getMonthAgo()
-            case "Past Year":
+            case .pastYear:
                 timescaleDate = time.getYearAgo()
-            default:
-                timescaleDate = Date()
             }
-            
             var scaledReadings: [Reading] = []
             
             for reading in self.readings! {

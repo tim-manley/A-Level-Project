@@ -297,7 +297,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="Rectangle 13" translatesAutoresizingMaskIntoConstraints="NO" id="8c6-M2-mCU">
-                                <rect key="frame" x="0.0" y="-2" width="414" height="900"/>
+                                <rect key="frame" x="-207" y="-2" width="828" height="900"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ig3-ok-qIt" customClass="newButton" customModule="A_Level_Project" customModuleProvider="target">
                                 <rect key="frame" x="156" y="730" width="103" height="103"/>
